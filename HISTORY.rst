@@ -7,7 +7,7 @@ History
 
 * First release on PyPI.
 
-0.1.1 (2018-09-25)
+0.2.1 (2018-09-25)
 ------------------
 
 * Fix json values
