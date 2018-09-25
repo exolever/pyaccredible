@@ -6,8 +6,8 @@ Python Accredible API
 .. image:: https://img.shields.io/pypi/v/pyaccredible.svg
         :target: https://pypi.python.org/pypi/pyaccredible
 
-.. image:: https://img.shields.io/travis/tomasgarzon/pyaccredible.svg
-        :target: https://travis-ci.org/tomasgarzon/pyaccredible
+.. image:: https://img.shields.io/travis/exolever/pyaccredible.svg
+        :target: https://travis-ci.org/exolever/pyaccredible
 
 .. image:: https://readthedocs.org/projects/pyaccredible/badge/?version=latest
         :target: https://pyaccredible.readthedocs.io/en/latest/?badge=latest

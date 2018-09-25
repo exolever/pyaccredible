@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/tomasgarzon/pyaccredible
+    $ git clone git://github.com/exolever/pyaccredible
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/tomasgarzon/pyaccredible/tarball/master
+    $ curl  -OL https://github.com/exolever/pyaccredible/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/tomasgarzon/pyaccredible
-.. _tarball: https://github.com/tomasgarzon/pyaccredible/tarball/master
+.. _Github repo: https://github.com/exolever/pyaccredible
+.. _tarball: https://github.com/exolever/pyaccredible/tarball/master
