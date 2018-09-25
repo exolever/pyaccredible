@@ -1,4 +1,5 @@
 import requests
+import json
 
 
 class AccredibleWrapper:
@@ -26,10 +27,10 @@ class AccredibleWrapper:
         return requests.get(url, data=data, headers=self.build_headers())
 
     def post(self, url, data):
-        return requests.post(url, data=data, headers=self.build_headers())
+        return requests.post(url, data=json.dumps(data), headers=self.build_headers())
 
     def put(self, url, data):
-        return requests.put(url, data=data, headers=self.build_headers())
+        return requests.put(url, data=json.dumps(data), headers=self.build_headers())
 
     def delete(self, url, data):
         return requests.delete(url, headers=self.build_headers())
