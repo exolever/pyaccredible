@@ -63,7 +63,7 @@ class AccredibleWrapper:
         url = '{}credentials/{}'.format(self.API_URL, credential_id)
         return self.put(url, data)
 
-    def credential_create_bulk(self, group_id, participants, issued_on):
+    def credential_create_bulk(self, group_id, participants, issued_on=None):
         data = {
             'credentials': []
         }
@@ -74,8 +74,9 @@ class AccredibleWrapper:
                     'email': participant[1],
                 },
                 'group_id': group_id,
-                'issued_on': issued_on.strftime("%Y-%m-%d")
             }
+            if issued_on:
+                recipient['issued_on'] = issued_on.strftime("%Y-%m-%d")
             data['credentials'].append(recipient)
         url = '{}credentials/bulk_create'.format(self.API_URL)
         return self.post(url, data)
