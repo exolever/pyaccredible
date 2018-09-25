@@ -12,7 +12,7 @@ History
 
 * Fix json values
 
-0.2.1 (2018-09-25)
+0.3.0 (2018-09-25)
 ------------------
 
 * Credential creating with issued_on allows null
