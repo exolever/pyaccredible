@@ -42,7 +42,7 @@ class AccredibleWrapper:
         url = self.group_url
         return self.post(url, data)
 
-    def credential_create(self, group_id, name, email, issued_on):
+    def credential_create(self, group_id, name, email, issued_on, custom_attrs={}):
         data = {
             'credential': {
                 'recipient': {
@@ -53,6 +53,8 @@ class AccredibleWrapper:
                 'issued_on': issued_on.strftime("%Y-%m-%d")
             }
         }
+        if custom_attrs:
+            data['credential']['custom_attributes'] = custom_attrs
         url = '{}credentials'.format(self.API_URL)
         return self.post(url, data)
 
@@ -63,7 +65,7 @@ class AccredibleWrapper:
         url = '{}credentials/{}'.format(self.API_URL, credential_id)
         return self.put(url, data)
 
-    def credential_create_bulk(self, group_id, participants, issued_on=None):
+    def credential_create_bulk(self, group_id, participants, issued_on=None, custom_attrs={}):
         data = {
             'credentials': []
         }
@@ -77,6 +79,8 @@ class AccredibleWrapper:
             }
             if issued_on:
                 recipient['issued_on'] = issued_on.strftime("%Y-%m-%d")
+            if custom_attrs:
+                recipient['custom_attributes'] = custom_attrs
             data['credentials'].append(recipient)
         url = '{}credentials/bulk_create'.format(self.API_URL)
         return self.post(url, data)
