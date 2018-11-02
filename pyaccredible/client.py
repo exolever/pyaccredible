@@ -84,3 +84,18 @@ class AccredibleWrapper:
             data['credentials'].append(recipient)
         url = '{}credentials/bulk_create'.format(self.API_URL)
         return self.post(url, data)
+
+    def generate_pdf(self, credential_id):
+        data = {}
+        url = '{}credentials/generate_single_pdf/{}'.format(
+            self.API_URL,
+            self.credential_id)
+        return self.post(url, data)
+
+    def generate_bulk_pdf(self, credentials_id):
+        data = {
+            'credentials': credentials_id,
+        }
+        url = '{}credentials/generate_pdf'.format(
+            self.API_URL)
+        return self.post(url, data)
