@@ -23,8 +23,8 @@ class AccredibleWrapper:
     def group_url(self):
         return '{}issuer/groups'.format(self.API_URL)
 
-    def get(self, url, data):
-        return requests.get(url, data=data, headers=self.build_headers())
+    def get(self, url):
+        return requests.get(url, headers=self.build_headers())
 
     def post(self, url, data):
         return requests.post(url, data=json.dumps(data), headers=self.build_headers())
@@ -99,3 +99,10 @@ class AccredibleWrapper:
         url = '{}credentials/generate_pdf'.format(
             self.API_URL)
         return self.post(url, data)
+
+    def get_credentials_by_group(self, group_id, page_size=200):
+        data = "?group_id={}&page_size={}".format(
+            group_id, page_size)
+        url = '{}all_credentials{}'.format(
+            self.API_URL, data)
+        return self.get(url)
