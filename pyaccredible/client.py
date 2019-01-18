@@ -70,6 +70,10 @@ class AccredibleWrapper:
         url = '{}credentials/{}'.format(self.API_URL, credential_id)
         return self.put(url, data)
 
+    def credential_delete(self, credential_id, **kwargs):
+        url = '{}credentials/{}'.format(self.API_URL, credential_id)
+        return self.delete(url)
+
     def credential_create_bulk(self, group_id, participants, issued_on=None, custom_attrs={}):
         data = {
             'credentials': []
@@ -111,3 +115,10 @@ class AccredibleWrapper:
         url = '{}all_credentials{}'.format(
             self.API_URL, data)
         return self.get(url)
+
+    def group_credentials_delete(self, group_id):
+        response = self.get_credentials_by_group(group_id)
+        credentials = response.json()['credentials']
+        for credential in credentials:
+            self.credential_delete(credential_id=credential['id'])
+        self.group_delete(group_id=group_id)
