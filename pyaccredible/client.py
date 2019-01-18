@@ -32,7 +32,7 @@ class AccredibleWrapper:
     def put(self, url, data):
         return requests.put(url, data=json.dumps(data), headers=self.build_headers())
 
-    def delete(self, url, data):
+    def delete(self, url):
         return requests.delete(url, headers=self.build_headers())
 
     def group_create(self, **kwargs):
@@ -41,6 +41,11 @@ class AccredibleWrapper:
         }
         url = self.group_url
         return self.post(url, data)
+
+    def group_delete(self, **kwargs):
+        group_id = kwargs.get('group_id')
+        url = '{}issuer/groups/{}'.format(self.API_URL, group_id)
+        return self.delete(url)
 
     def credential_create(self, group_id, name, email, issued_on, custom_attrs={}):
         data = {
