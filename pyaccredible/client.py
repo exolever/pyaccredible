@@ -47,6 +47,13 @@ class AccredibleWrapper:
         url = '{}issuer/groups/{}'.format(self.API_URL, group_id)
         return self.delete(url)
 
+    def group_update(self, group_id, **kwargs):
+        url = '{}issuer/groups/{}'.format(self.API_URL, group_id)
+        data = {
+            'group': kwargs,
+        }
+        return self.put(url, data)
+
     def credential_create(self, group_id, name, email, issued_on, custom_attrs={}):
         data = {
             'credential': {
